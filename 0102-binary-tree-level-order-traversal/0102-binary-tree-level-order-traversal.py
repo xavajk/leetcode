@@ -7,7 +7,6 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root: return []
-        
         res = []
         queue = [root]
         while queue:
