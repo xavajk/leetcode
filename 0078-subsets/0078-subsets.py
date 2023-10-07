@@ -1,16 +1,15 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        res, subset = [[]], set()
-        n = len(nums)
+        res, subset = [], []
         def backtrack(i):
-            if i == n:
+            if i >= len(nums):
+                res.append(subset.copy())
                 return
-            # dont take
+            # include nums[i]
+            subset.append(nums[i])
             backtrack(i + 1)
-            # take
-            subset.add(nums[i])
-            res.append(sorted(list(subset)))
+            # dont include nums[i]
+            subset.pop()
             backtrack(i + 1)
-            subset.remove(nums[i])
         backtrack(0)
         return res
