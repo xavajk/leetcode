@@ -1,6 +1,6 @@
 class Trie:
 
-    def __init__(self, val=""):
+    def __init__(self):
         self.children = {}
         self.is_word = False
 
