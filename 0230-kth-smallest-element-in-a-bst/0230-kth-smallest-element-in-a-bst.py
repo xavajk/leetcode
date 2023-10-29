@@ -19,8 +19,8 @@ class Solution:
             return
 
         dfs(root)
-        for i in range(k - 1):
-            heapq.heappop(heap)
-        # while len(heap) > k:
-        #     heap.pop()
-        return heap[0]
+        # for i in range(k - 1):
+        #     heapq.heappop(heap)
+        while len(heap) > k:
+            heap.pop()
+        return heap[k - 1]
