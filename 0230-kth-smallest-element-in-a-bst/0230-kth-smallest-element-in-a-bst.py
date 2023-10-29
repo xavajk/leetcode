@@ -9,6 +9,7 @@ class Solution:
         # maintain heap of size k
         # return heap[k - 1]
         heap = []
+        # inorder dfs traversal to preserve value order
         def dfs(node):
             if not node:
                 return
@@ -18,6 +19,8 @@ class Solution:
             return
 
         dfs(root)
-        while len(heap) > k:
-            heap.pop()
-        return heap[k - 1]
+        for i in range(k - 1):
+            heapq.heappop(heap)
+        # while len(heap) > k:
+        #     heap.pop()
+        return heap[0]
